@@ -6,6 +6,7 @@ export default function AddCart() {
     quantity: '',
     price: '',
     image: '',
+    category:'',
   });
 
   const handleChange = (e) => {
@@ -32,7 +33,8 @@ export default function AddCart() {
         name: '',
         quantity: '',
         price: '',
-        image: ''
+        image: '',
+        category:'',
       });
     } catch (error) {
       alert('❌ Error submitting product');
@@ -50,6 +52,24 @@ export default function AddCart() {
         <input name="quantity" value={formData.quantity} type="number" placeholder="Quantity" className="w-full border p-2 rounded" onChange={handleChange} />
         <input name="price" value={formData.price} type="number" placeholder="Price" className="w-full border p-2 rounded" onChange={handleChange} />
         <input name="image"  value={formData.image} placeholder="Image URL" className="w-full border p-2 rounded" onChange={handleChange} />
+        <label for="dropdown" className="block mb-2 text-sm font-medium text-gray-700">Choose an option</label>
+                <select
+          id="dropdown"
+          name="category"
+          value={formData.category}
+          onChange={handleChange}  // make sure to update formData.category on change
+          className="block w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+        >
+          <option value="" disabled>Select an option</option>
+          <option value="Electronics">Electronics</option>
+          <option value="Dress">Dress</option>
+          <option value="Ornaments">Ornaments</option>
+          <option value="Foods">Foods</option>
+          <option value="Kitchen">Kitchen</option>
+          <option value="Decoratives">Decoratives</option>
+          <option value="Toys">Toys</option>
+        </select>
+
         <button type="submit" className="bg-blue-600 text-white px-4 py-2 rounded">Submit</button>
       </form>
     </div>

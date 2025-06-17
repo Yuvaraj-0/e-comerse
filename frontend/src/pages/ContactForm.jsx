@@ -30,7 +30,11 @@ const ContactForm = () => {
     <form ref={form} onSubmit={handleSubmit}>
       <input type="text" name="user_name" placeholder="Name" />
       <input type="email" name="user_email" placeholder="Email" />
-      <textarea name="message" placeholder="Your message" />
+      <textarea name="message" placeholder="name" />
+      <textarea name="message" placeholder="product Name" />
+      <textarea name="message" placeholder="name" />
+      <textarea name="message" placeholder="Adress" />
+
       <button type="submit">Send</button>
     </form>
   );

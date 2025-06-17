@@ -3,6 +3,7 @@ import product from './models/productModel.js';
 import cors from 'cors';
 import productRoutes from './routes/productRoute.js';
 import cartRoutes from './routes/cartRoutes.js';
+import CategoryRoutes from './routes/CategoryRoute.js';
  // ⬅️ Add this line
 
 const app = express();
@@ -13,7 +14,7 @@ import mongoose from 'mongoose';
 const mongoURI = "mongodb://localhost:27017/e-com";
 app.use(express.json());
 
-
+// save product database
 app.post('/api/products',async (req,res) => {
     try{
         const NewProduct =await product.create(req.body);
@@ -37,7 +38,11 @@ app.get('/api/products', async (req, res) => {
 app.use('/api', productRoutes);
 
 // cart route
-app.use('/api', cartRoutes);   
+app.use('/api', cartRoutes); 
+
+//Category routes
+app.use('/products', CategoryRoutes);
+
 
 mongoose.connect(mongoURI, {
   useNewUrlParser: true,

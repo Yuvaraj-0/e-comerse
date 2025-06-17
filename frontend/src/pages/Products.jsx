@@ -21,7 +21,7 @@ axios.get('http://localhost:3002/api/products')
     <>
         
         <div className="container mx-auto px-4">
-  <Link to="/" className="text-blue-600 underline">add</Link>
+  <Link to="/add" className="text-blue-600 underline">add</Link>
   <h1 className="text-2xl font-bold my-6">Shopping here</h1>
 
   <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 mt-10 mb-10">

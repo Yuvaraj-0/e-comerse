@@ -21,4 +21,19 @@ router.get('/product/name/:name', async (req, res) => {
   }
 });
 
+/** 
+* @route   GET /api/products/random
+* @desc    Fetch 5 random products
+*/
+router.get('/products/random', async (req, res) => {
+ try {
+   const products = await Product.aggregate([{ $sample: { size: 5 } }]);
+   res.json(products);
+ } catch (error) {
+   console.error(error);
+   res.status(500).json({ error: 'Server error' });
+ }
+});
+
+
 export default router;
